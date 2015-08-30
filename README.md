@@ -10,3 +10,10 @@ Para instalar las librerías
 + Cambiar al directorio I1M-master.
 + Ejecutar `cabal install I1M.cabal`
 
+Las librerías y sus correspondientes temas son
+
+| Librería                                        | Tema                             |
+|-------------------------------------------------|----------------------------------|
+| [TAD de las pilas](blob/master/src/I1M/Pila.hs) | [Tema 14](http://bit.ly/1F5SqpU) |
+
+

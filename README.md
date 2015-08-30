@@ -14,6 +14,6 @@ Las librerías y sus correspondientes temas son
 
 | Librería                                        | Tema                             |
 |-------------------------------------------------|----------------------------------|
-| [TAD de las pilas](blob/master/src/I1M/Pila.hs) | [Tema 14](http://bit.ly/1F5SqpU) |
+| [TAD de las pilas](src/I1M/Pila.hs)  | [Tema 14](http://bit.ly/1F5SqpU) |
 
 

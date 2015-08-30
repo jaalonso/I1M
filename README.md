@@ -14,7 +14,7 @@ Las librerías y sus correspondientes temas son
 
 | Tema                                 | Librería                             | 
 |--------------------------------------|--------------------------------------|
-| [Tema 12](http://bit.ly/1IswyVV)     | [Analizadores funcionales](src/I1M/Analizador.hd) |
+| [Tema 12](http://bit.ly/1IswyVV)     | [Analizadores funcionales](src/I1M/Analizador.hs) |
 | [Tema 14](http://bit.ly/1F5SqpU)     | [TAD de las pilas](src/I1M/Pila.hs)  | 
 | [Tema 15](http://bit.ly/1F5RSjM)     | [TAD de las colas](src/I1M/Cola.hs) |
 | [Tema 16](http://bit.ly/1WYZsrz)     | [TAD de las colas de prioridad](src/I1M/ColaDePrioridad.hs) |

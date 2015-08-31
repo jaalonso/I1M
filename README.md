@@ -10,6 +10,8 @@ Para instalar las librerías
 + Cambiar al directorio I1M-master.
 + Ejecutar `cabal install I1M.cabal`
 
+La documentación se puede consultar [aquí](http://jaalonso.github.io/I1M/).
+
 Las librerías y sus correspondientes temas son
 
 | Tema                                 | Librería                             | 

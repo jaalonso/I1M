@@ -3,7 +3,7 @@ usadas en el curso de
 [Informática de 1º del Grado en Matemáticas](http://bit.ly/1WYZ1O9) 
 de la Universidad de Sevilla.
 
-Para instalar las librerías
+Los pasos para instalar las librerías son:
 
 + Descargar el paquete [I1M](https://github.com/jaalonso/I1M/archive/master.zip)
 + Descomprimirlo (y se crea el directorio I1M-master.zip).

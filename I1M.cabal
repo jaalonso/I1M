@@ -22,6 +22,7 @@ cabal-version:       >=1.10
 library
   exposed-modules:     I1M.T1
                      , I1M.T2
+                     , I1M.T3
                      , I1M.Pila
                      , I1M.Cola
                      , I1M.ColaDePrioridad

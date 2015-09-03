@@ -20,7 +20,8 @@ build-type:          Simple
 cabal-version:       >=1.10
 
 library
-  exposed-modules:     I1M.Pila,
+  exposed-modules:     I1M.T2,
+                       I1M.Pila,
                        I1M.Cola,
                        I1M.ColaDePrioridad,
                        I1M.Conjunto,

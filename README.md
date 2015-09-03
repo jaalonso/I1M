@@ -16,7 +16,7 @@ Las librerías y sus correspondientes temas son
 
 | Tema                                 | Librería                             | 
 |--------------------------------------|--------------------------------------|
-| [Tema 2](http://bit.ly/1hVU8p8)      | [Introducción a la programación con Haskell]((src/I1M/T2.hs) |
+| [Tema 2](http://bit.ly/1hVU8p8)      | [Introducción a la programación con Haskell](src/I1M/T2.hs) |
 | [Tema 12](http://bit.ly/1IswyVV)     | [Analizadores funcionales](src/I1M/Analizador.hs) |
 | [Tema 14](http://bit.ly/1F5SqpU)     | [TAD de las pilas](src/I1M/Pila.hs)  | 
 | [Tema 15](http://bit.ly/1F5RSjM)     | [TAD de las colas](src/I1M/Cola.hs) |

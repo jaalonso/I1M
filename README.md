@@ -38,4 +38,4 @@ Las librerías y sus correspondientes temas son
 | [Tema 23.4](http://bit.ly/1LIx3CJ)   | [Búsqueda en escalada](src/I1M/BusquedaEnEscalada.hs) |
 | [Tema 24](http://bit.ly/1LIxi0u)     | [Programación dinámica](src/I1M/Dinamica.hs) |
 
-Probando
+

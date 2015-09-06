@@ -21,12 +21,14 @@ Las librerías incluidas son:
     + [TAD de los conjuntos](src/I1M/Conjunto.hs) 
     + [TAD de las tablas](src/I1M/Tabla.hs) 
     + [TAD de los árboles binarios de búaqueda](src/I1M/ArbolBin.hs) 
-    + [TAD de los montículos](src/I1M/Monticulo.hs) 
-    + [TAD de los polinomios](src/I1M/Pol.hs) 
-    + [Operaciones con el TAD de los polinomios](src/I1M/PolOperaciones.hs) 
-    + [TAD de los grafos](src/I1M/Grafo.hs) 
-    + [Recorrido en profundidad](src/I1M/RecorridoEnProfundidad.hs) 
-    + [Recorrido en anchura](src/I1M/RecorridoEnAnchura.hs)
+    + [TAD de los montículos](src/I1M/Monticulo.hs)
+    + Polinomios:
+        + [TAD de los polinomios](src/I1M/Pol.hs) 
+        + [Operaciones con el TAD de los polinomios](src/I1M/PolOperaciones.hs) 
+    + Grafos:
+        + [TAD de los grafos](src/I1M/Grafo.hs) 
+        + [Recorrido en profundidad](src/I1M/RecorridoEnProfundidad.hs) 
+        + [Recorrido en anchura](src/I1M/RecorridoEnAnchura.hs)
 + Patrones:
     + [Divide y vencerás](src/I1M/DivideVenceras.hs) 
     + [Búsqueda en espacios de estados](src/I1M/BusquedaEnEspaciosDeEstados.hs) 

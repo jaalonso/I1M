@@ -27,8 +27,8 @@ Las librerías incluidas son:
         + [Operaciones con el TAD de los polinomios](src/I1M/PolOperaciones.hs) 
     + Grafos:
         + [TAD de los grafos](src/I1M/Grafo.hs) 
-        + [Recorrido en profundidad](src/I1M/RecorridoEnProfundidad.hs) 
-        + [Recorrido en anchura](src/I1M/RecorridoEnAnchura.hs)
+        + [Recorrido en profundidad en grafos](src/I1M/RecorridoEnProfundidad.hs) 
+        + [Recorrido en anchura en grafos](src/I1M/RecorridoEnAnchura.hs)
 + Patrones:
     + [Divide y vencerás](src/I1M/DivideVenceras.hs) 
     + [Búsqueda en espacios de estados](src/I1M/BusquedaEnEspaciosDeEstados.hs) 

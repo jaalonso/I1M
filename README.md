@@ -12,31 +12,29 @@ Los pasos para instalar las librerías son:
 
 La documentación se puede consultar [aquí](http://jaalonso.github.io/I1M/).
 
-Las librerías y sus correspondientes temas son
+Las librerías incluidas son:
 
-| Tema                                 | Librería                             | 
-|--------------------------------------|--------------------------------------|
-| [Tema 1](http://bit.ly/1L87d5x)      | [Introducción a la programación funcional](src/I1M/T1.hs) |
-| [Tema 2](http://bit.ly/1hVU8p8)      | [Introducción a la programación con Haskell](src/I1M/T2.hs) |
-| [Tema 3](http://bit.ly/1L88tWh)      | [Tipos y clases](src/I1M/T3.hs) |
-| [Tema 12](http://bit.ly/1IswyVV)     | [Analizadores funcionales](src/I1M/Analizador.hs) |
-| [Tema 14](http://bit.ly/1F5SqpU)     | [TAD de las pilas](src/I1M/Pila.hs)  | 
-| [Tema 15](http://bit.ly/1F5RSjM)     | [TAD de las colas](src/I1M/Cola.hs) |
-| [Tema 16](http://bit.ly/1WYZsrz)     | [TAD de las colas de prioridad](src/I1M/ColaDePrioridad.hs) |
-| [Tema 17](http://bit.ly/1WYZzmW)     | [TAD de los conjuntos](src/I1M/Conjunto.hs) |
-| [Tema 18](http://bit.ly/1WZ0bZL)     | [TAD de las tablas](src/I1M/Tabla.hs) |
-| [Tema 19](http://bit.ly/1F5RFgF)     | [TAD de los árboles binarios de búaqueda](src/I1M/ArbolBin.hs) |
-| [Tema 20](http://bit.ly/1F5Sl5B)     | [TAD de los montículos](src/I1M/Monticulo.hs) |
-| [Tema 21](http://bit.ly/1UmqncN)     | [TAD de los polinomios](src/I1M/Pol.hs) |
-| [Tema 21.4](http://bit.ly/1UmqogS)   | [Operaciones con el TAD de los polinomios](src/I1M/PolOperaciones.hs) |
-| [Tema 22.1](http://bit.ly/1Erq1PY)   | [TAD de los grafos](src/I1M/Grafo.hs) |
-| [Tema 22.2.1](http://bit.ly/1UmqCob) | [Recorrido en profundidad](src/I1M/RecorridoEnProfundidad.hs) |
-| [Tema 22.2.2](http://bit.ly/1UmqEfO) | [Recorrido en anchura](src/I1M/RecorridoEnAnchura.hs) |
-| [Tema 23.1](http://bit.ly/1IstbhD)   | [Divide y vencerás](src/I1M/DivideVenceras.hs) |
-| [Tema 23.2](http://bit.ly/1LIvQeO)   | [Búsqueda en espacios de estados](src/I1M/BusquedaEnEspaciosDeEstados.hs) |
-| [Tema 23.3](http://bit.ly/1IstIjL)   | [Búsqueda por primero el mejor](src/I1M/BusquedaPrimeroElMejor.hs) |
-| [Tema 23.4](http://bit.ly/1LIx3CJ)   | [Búsqueda en escalada](src/I1M/BusquedaEnEscalada.hs) |
-| [Tema 24](http://bit.ly/1LIxi0u)     | [Programación dinámica](src/I1M/Dinamica.hs) |
++ Tipos abstractos de datos:
+    + [TAD de las pilas](src/I1M/Pila.hs)   
+    + [TAD de las colas](src/I1M/Cola.hs) 
+    + [TAD de las colas de prioridad](src/I1M/ColaDePrioridad.hs) 
+    + [TAD de los conjuntos](src/I1M/Conjunto.hs) 
+    + [TAD de las tablas](src/I1M/Tabla.hs) 
+    + [TAD de los árboles binarios de búaqueda](src/I1M/ArbolBin.hs) 
+    + [TAD de los montículos](src/I1M/Monticulo.hs) 
+    + [TAD de los polinomios](src/I1M/Pol.hs) 
+    + [Operaciones con el TAD de los polinomios](src/I1M/PolOperaciones.hs) 
+    + [TAD de los grafos](src/I1M/Grafo.hs) 
+    + [Recorrido en profundidad](src/I1M/RecorridoEnProfundidad.hs) 
+    + [Recorrido en anchura](src/I1M/RecorridoEnAnchura.hs)
++ Patrones:
+    + [Divide y vencerás](src/I1M/DivideVenceras.hs) 
+    + [Búsqueda en espacios de estados](src/I1M/BusquedaEnEspaciosDeEstados.hs) 
+    + [Búsqueda por primero el mejor](src/I1M/BusquedaPrimeroElMejor.hs) 
+    + [Búsqueda en escalada](src/I1M/BusquedaEnEscalada.hs) 
+    + [Programación dinámica](src/I1M/Dinamica.hs) 
++ Analizadores:
+    + [Analizadores funcionales](src/I1M/Analizador.hs) 
 
 
-Probando
+

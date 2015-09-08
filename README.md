@@ -20,7 +20,7 @@ Las librerías incluidas son:
     + [TAD de las colas de prioridad](src/I1M/ColaDePrioridad.hs) 
     + [TAD de los conjuntos](src/I1M/Conjunto.hs) 
     + [TAD de las tablas](src/I1M/Tabla.hs) 
-    + [TAD de los árboles binarios de búaqueda](src/I1M/ArbolBin.hs) 
+    + [TAD de los árboles binarios de búsqueda](src/I1M/ArbolBin.hs) 
     + [TAD de los montículos](src/I1M/Monticulo.hs)
     + Polinomios:
         + [TAD de los polinomios](src/I1M/Pol.hs) 

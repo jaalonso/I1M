@@ -38,4 +38,4 @@ Las librerías incluidas son:
 + Analizadores:
     + [Analizadores funcionales](src/I1M/Analizador.hs) 
 
-Probando
+

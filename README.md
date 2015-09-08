@@ -29,7 +29,7 @@ Las librerías incluidas son:
         + [TAD de los grafos](src/I1M/Grafo.hs) 
         + [Recorrido de grafos en profundidad](src/I1M/RecorridoEnProfundidad.hs) 
         + [Recorrido de grafos en anchura](src/I1M/RecorridoEnAnchura.hs)
-+ Patrones:
++ Patrones de diseño:
     + [Divide y vencerás](src/I1M/DivideVenceras.hs) 
     + [Búsqueda en espacios de estados](src/I1M/BusquedaEnEspaciosDeEstados.hs) 
     + [Búsqueda por primero el mejor](src/I1M/BusquedaPrimeroElMejor.hs) 

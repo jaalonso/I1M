@@ -1,0 +1,50 @@
+name: I1M
+version: '17.7.15.0'
+synopsis: Código de I1M.
+description: ! 'En este paquete se encuentra los códigos de las librerías
+
+  desarrolladas en el curso de
+
+  <http://bit.ly/1WYZ1O9 Informática> de 1º del Grado en Matemáticas
+
+  de la Universidad de Sevilla.'
+category: Data
+author: Jose A. Alonso
+maintainer: JoseA.Alonso@gmail.com
+license: GPL-2
+homepage: https://github.com/jaalonso/I1M
+dependencies:
+- base >=4.8
+library:
+  source-dirs: src
+  exposed-modules:
+  - I1M.Pila
+  - I1M.Cola
+  - I1M.ColaDePrioridad
+  - I1M.Conjunto
+  - I1M.Tabla
+  - I1M.ArbolBin
+  - I1M.Monticulo
+  - I1M.Pol
+  - I1M.PolOperaciones
+  - I1M.Grafo
+  - I1M.RecorridoEnProfundidad
+  - I1M.RecorridoEnAnchura
+  - I1M.DivideVenceras
+  - I1M.BusquedaEnEspaciosDeEstados
+  - I1M.BusquedaPrimeroElMejor
+  - I1M.BusquedaEnEscalada
+  - I1M.Dinamica
+  - I1M.Analizador
+  dependencies:
+  - array >=0.5
+  - QuickCheck >=2.8
+tests:
+  test:
+    main: Main.hs
+    source-dirs: test
+    dependencies:
+    - I1M
+    - tasty >=0.8
+    - tasty-quickcheck >=0.8
+    - tasty-hunit >=0.8

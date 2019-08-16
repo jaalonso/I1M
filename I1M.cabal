@@ -2,14 +2,14 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 2dfa20efb117841bf30be0f210f932c14dd3b9222279064f82184f16dabec9a3
+-- hash: f818bd4b33890e01925c7f9516e86174675739b8f0ae593854f83feb27077a6a
 
 name:           I1M
 version:        2.0.0
 synopsis:       Código de I1M.
 description:    En este paquete se encuentra los códigos de las librerías
                 desarrolladas en el curso de
-                <http://bit.ly/1WYZ1O9 Informática> de 1º del Grado en Matemáticas
+                <https://www.cs.us.es/~jalonso/cursos/i1m Informática> de 1º del Grado en Matemáticas
                 de la Universidad de Sevilla.
 category:       Data
 homepage:       https://github.com/jaalonso/I1M
@@ -44,7 +44,7 @@ library
       Paths_I1M
   hs-source-dirs:
       src
-  ghc-options: -Wall -fno-warn-type-defaults
+  ghc-options: -w
   build-depends:
       QuickCheck >=2.9.2
     , array >=0.5

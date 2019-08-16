@@ -5,7 +5,7 @@ description: ! 'En este paquete se encuentra los códigos de las librerías
 
   desarrolladas en el curso de
 
-  <http://bit.ly/1WYZ1O9 Informática> de 1º del Grado en Matemáticas
+  <https://www.cs.us.es/~jalonso/cursos/i1m Informática> de 1º del Grado en Matemáticas
 
   de la Universidad de Sevilla.'
 category: Data
@@ -17,7 +17,7 @@ dependencies:
 - base >=4.7 && <5
 library:
   source-dirs: src
-  ghc-options: -Wall -fno-warn-type-defaults
+  ghc-options: -w
   exposed-modules:
   - I1M.Pila
   - I1M.Cola

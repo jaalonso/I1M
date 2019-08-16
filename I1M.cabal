@@ -1,22 +1,24 @@
--- This file has been generated from package.yaml by hpack version 0.17.0.
+-- This file has been generated from package.yaml by hpack version 0.28.2.
 --
 -- see: https://github.com/sol/hpack
+--
+-- hash: 2dfa20efb117841bf30be0f210f932c14dd3b9222279064f82184f16dabec9a3
 
-name:                I1M
-version:             17.09.10.0
-synopsis:            Código de I1M.
-description:         En este paquete se encuentra los códigos de las librerías
-                     desarrolladas en el curso de
-                     <http://bit.ly/1WYZ1O9 Informática> de 1º del Grado en Matemáticas
-                     de la Universidad de Sevilla.
-homepage:            https://github.com/jaalonso/I1M
-license:             GPL-2
-license-file:        LICENSE
-author:              Jose A. Alonso
-maintainer:          JoseA.Alonso@gmail.com
-category:            Data
-build-type:          Simple
-cabal-version:       >= 1.10
+name:           I1M
+version:        2.0.0
+synopsis:       Código de I1M.
+description:    En este paquete se encuentra los códigos de las librerías
+                desarrolladas en el curso de
+                <http://bit.ly/1WYZ1O9 Informática> de 1º del Grado en Matemáticas
+                de la Universidad de Sevilla.
+category:       Data
+homepage:       https://github.com/jaalonso/I1M
+author:         Jose A. Alonso
+maintainer:     JoseA.Alonso@gmail.com
+license:        GPL-2
+license-file:   LICENSE
+build-type:     Simple
+cabal-version:  >= 1.10
 
 library
   exposed-modules:
@@ -40,25 +42,18 @@ library
       I1M.Analizador
   other-modules:
       Paths_I1M
-  build-depends:
-      base >=4.8
-    , array >=0.5
-    , QuickCheck >=2.8
   hs-source-dirs:
       src
+  ghc-options: -Wall -fno-warn-type-defaults
+  build-depends:
+      QuickCheck >=2.9.2
+    , array >=0.5
+    , base >=4.7 && <5
   default-language: Haskell2010
 
 test-suite test
   type: exitcode-stdio-1.0
   main-is: Main.hs
-  hs-source-dirs:
-      test
-  build-depends:
-      base >=4.8
-    , I1M
-    , tasty >=0.8
-    , tasty-quickcheck >=0.8
-    , tasty-hunit >=0.8
   other-modules:
       ArbolBinPropiedades
       ColaDePrioridadPropiedades
@@ -69,4 +64,13 @@ test-suite test
       PolOperacionesPropiedades
       PolPropiedades
       TablaPropiedades
+      Paths_I1M
+  hs-source-dirs:
+      test
+  build-depends:
+      I1M
+    , base >=4.7 && <5
+    , tasty >=0.11
+    , tasty-hunit >=0.9
+    , tasty-quickcheck >=0.8
   default-language: Haskell2010

@@ -76,7 +76,7 @@ resultado v =  \ent -> [(v,ent)]
 -- 
 -- > analiza fallo "Hola"  ==  []
 fallo :: Analizador a
-fallo = \ent -> []
+fallo = \_ -> []
 
 -- | El analizador @elemento@ falla si la cadena es vacía y consume el primer
 -- elemento en caso contrario. Por ejemplo,
@@ -86,7 +86,7 @@ fallo = \ent -> []
 elemento :: Analizador Char
 elemento = \xs -> case xs of
                     [] -> []
-                    (x:xs) -> [(x,xs)]
+                    (y:ys) -> [(y,ys)]
 
 -- ---------------------------------------------------------------------
 -- § Secuenciación                                                    --
@@ -102,17 +102,7 @@ infixr 5 >*>
 p >*> f = \ent -> case analiza p ent of
                        []        -> []
                        [(v,sal)] -> analiza (f v) sal
-
--- primeroTercero es un analizador que devuelve la primero y tercer
--- carácter de la cadena. Por ejemplo,
---    primeroTercero "Juan"  ==  [(('J','a'),"n")]
---    primeroTercero "Ju"    ==  []
-primeroTercero :: Analizador (Char,Char)
-primeroTercero =
-    elemento >*> \x ->
-    elemento >*> \_ ->
-    elemento >*> \y ->
-    resultado (x,y)
+                       _         -> error "Imposible"
 
 -- ---------------------------------------------------------------------
 -- § Elección                                                         --
@@ -128,7 +118,8 @@ primeroTercero =
 p +++ q = \ent -> case analiza p ent of
                     []        -> analiza q ent
                     [(v,sal)] -> [(v,sal)]
-
+                    _         -> error "Imposible"
+                      
 -- ---------------------------------------------------------------------
 -- Primitivas derivadas                                               --
 -- ---------------------------------------------------------------------
@@ -197,9 +188,9 @@ caracter x = sat (== x)
 -- > analiza (cadena "abc") "abdcef"  ==  []
 cadena :: String -> Analizador String
 cadena []     = resultado []
-cadena (x:xs) = caracter x >*> \x  ->
-                cadena xs  >*> \xs ->
-                resultado (x:xs)
+cadena (x:xs) = caracter x >*> \y  ->
+                cadena xs  >*> \ys ->
+                resultado (y:ys)
 
 -- | (varios p) aplica el analizador p cero o más veces. Por ejemplo,
 -- 
@@ -348,3 +339,4 @@ valor xs = case (analiza expr xs) of
              [(n,[])]  -> n
              [(_,sal)] -> error ("entrada sin usar " ++ sal)
              []        -> error "entrada no valida"
+             _         -> error "Imposible"

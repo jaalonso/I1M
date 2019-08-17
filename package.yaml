@@ -1,11 +1,11 @@
 name: I1M
 version: '0.0.1'
-synopsis: Code for the Haskell course taught at the University od Seville.
+synopsis: Code for the Haskell course taught at the University of Seville.
 description: |
-  'En este paquete se encuentra los códigos de las librerías
+  En este paquete se encuentra los códigos de las librerías
   desarrolladas en el curso de 
   <https://www.cs.us.es/~jalonso/cursos/i1m Informática> 
-  de 1º del Grado en Matemáticas de la Universidad de Sevilla.'
+  de 1º del Grado en Matemáticas de la Universidad de Sevilla.
 category: Education, Data Structures, Library 
 author: Jose A. Alonso
 maintainer: JoseA.Alonso@gmail.com

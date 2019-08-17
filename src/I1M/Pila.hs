@@ -10,30 +10,30 @@
 -- estudiado en el <http://bit.ly/1F5SqpU tema 14> del curso.
 
 module I1M.Pila
-    (Pila,
-     vacia,    -- Pila a
-     apila,    -- a -> Pila a -> Pila a
-     cima,     -- Pila a -> a
-     desapila, -- Pila a -> Pila a
-     esVacia   -- Pila a -> Bool
-    ) where
+  (Pila,
+   vacia,    -- Pila a
+   apila,    -- a -> Pila a -> Pila a
+   cima,     -- Pila a -> a
+   desapila, -- Pila a -> Pila a
+   esVacia   -- Pila a -> Bool
+  ) where
 
 -- | Tipo de dato de las pilas.
 data Pila a = Vacia
             | P a (Pila a)
-              deriving Eq
+  deriving Eq
 
 -- Procedimiento de escritura de pilas.
 instance (Show a) => Show (Pila a) where
-    showsPrec p Vacia cad   = showChar '-' cad
-    showsPrec p (P x s) cad = shows x (showChar '|' (shows s cad))
+  showsPrec _ Vacia cad   = showChar '-' cad
+  showsPrec _ (P x s) cad = shows x (showChar '|' (shows s cad))
 
 -- | p1 es un ejemplo de pila que se usará en los siguientes ejemplos:
 -- 
 -- > ghci> p1
 -- > 1|2|3|-
-p1 :: Pila Int
-p1 = apila 1 (apila 2 (apila 3 vacia))
+-- p1 :: Pila Int
+-- p1 = apila 1 (apila 2 (apila 3 vacia))
 
 -- | vacia es la pila vacía. Por ejemplo,
 --
@@ -47,7 +47,7 @@ vacia = Vacia
 --
 -- > apila 4 (apila 1 (apila 2 (apila 3 vacia)))  ==  4|1|2|3|-
 apila :: a -> Pila a -> Pila a
-apila x p = P x p
+apila = P 
 
 -- | (cima p) es la cima de la pila p. Por ejemplo,
 --

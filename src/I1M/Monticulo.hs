@@ -27,21 +27,21 @@
 -- no lo es.
 
 module I1M.Monticulo
-    (Monticulo,
-     vacio,   -- Ord a => Monticulo a
-     inserta, -- Ord a => a -> Monticulo a -> Monticulo a
-     menor,   -- Ord a => Monticulo a -> a
-     resto,   -- Ord a => Monticulo a -> Monticulo a
-     esVacio, -- Ord a => Monticulo a -> Bool
-     valido   -- Ord a => Monticulo a -> Bool
-    ) where 
+  (Monticulo,
+   vacio,   -- Ord a => Monticulo a
+   inserta, -- Ord a => a -> Monticulo a -> Monticulo a
+   menor,   -- Ord a => Monticulo a -> a
+   resto,   -- Ord a => Monticulo a -> Monticulo a
+   esVacio, -- Ord a => Monticulo a -> Bool
+   valido   -- Ord a => Monticulo a -> Bool
+  ) where 
 
 import Data.List (sort)
 
 -- | El tipo de dato de los montículos.
 data Monticulo a = Vacio
                  | M a Int (Monticulo a) (Monticulo a)
-                   deriving Show
+  deriving Show
 
 -- Ejemplos de montículos
 --    ghci> m1
@@ -65,11 +65,11 @@ data Monticulo a = Vacio
 --        (4,1)   (6,1)  (7,1)           (5,2)        (4,1)
 --       /                              /     \       /
 --    (8,1)                          (7,1)   (6,1)  (8,1)
-m1, m1', m2, m3 :: Monticulo Int
-m1  = foldr inserta vacio [6,1,4,8]
-m1' = foldr inserta vacio [6,8,4,1]
-m2  = foldr inserta vacio [7,5]
-m3 = mezcla m1 m2
+-- m1, m1', m2, m3 :: Monticulo Int
+-- m1  = foldr inserta vacio [6,1,4,8]
+-- m1' = foldr inserta vacio [6,8,4,1]
+-- m2  = foldr inserta vacio [7,5]
+-- m3 = mezcla m1 m2
 
 -- | vacio es el montículo vacío.
 vacio :: Ord a => Monticulo a
@@ -113,8 +113,8 @@ mezcla :: Ord a =>  Monticulo a -> Monticulo a -> Monticulo a
 mezcla m Vacio = m
 mezcla Vacio m = m
 mezcla m1@(M x _ a1 b1) m2@(M y _ a2 b2)
-      | x <= y    = creaM x a1 (mezcla b1 m2)
-      | otherwise = creaM y a2 (mezcla m1 b2)
+  | x <= y    = creaM x a1 (mezcla b1 m2)
+  | otherwise = creaM y a2 (mezcla m1 b2)
 
 -- | (inserta x m) es el montículo obtenido añadiendo el elemento x al
 -- montículo m. Por ejemplo, 
@@ -124,7 +124,7 @@ mezcla m1@(M x _ a1 b1) m2@(M y _ a2 b2)
 -- >   (M 4 1 (M 8 1 Vacio Vacio) Vacio) 
 -- >   (M 3 1 (M 6 1 Vacio Vacio) Vacio)
 inserta :: Ord a => a -> Monticulo a -> Monticulo a
-inserta x m = mezcla (M x 1 Vacio Vacio) m
+inserta x = mezcla (M x 1 Vacio Vacio) 
 
 -- | (menor m) es el menor elemento del montículo m. Por ejemplo, 
 --
@@ -141,7 +141,7 @@ menor Vacio       = error "menor: monticulo vacio"
 -- > M 4 2 (M 8 1 Vacio Vacio) (M 6 1 Vacio Vacio)
 resto :: Ord a => Monticulo a -> Monticulo a
 resto Vacio       = error "resto: monticulo vacio"
-resto (M x _ a b) = mezcla a b
+resto (M _ _ a b) = mezcla a b
 
 -- | (esVacio m) se verifica si m es el montículo vacío.
 esVacio :: Ord a => Monticulo a -> Bool
@@ -157,14 +157,14 @@ esVacio _     = False
 -- > valido (M 3 5 (M 2 1 Vacio Vacio) Vacio)  ==  False
 valido :: Ord a => Monticulo a -> Bool
 valido Vacio = True
-valido (M x _ Vacio Vacio) = True
-valido (M x _ m1@(M x1 n1 a1 b1) Vacio) = 
-    x <= x1 && valido m1
-valido (M x _ Vacio m2@(M x2 n2 a2 b2)) = 
-    x <= x2 && valido m2
-valido (M x _ m1@(M x1 n1 a1 b1) m2@(M x2 n2 a2 b2)) = 
-    x <= x1 && valido m1 &&
-    x <= x2 && valido m2
+valido (M _ _ Vacio Vacio) = True
+valido (M x _ m1@(M x1 _ _ _) Vacio) = 
+  x <= x1 && valido m1
+valido (M x _ Vacio m2@(M x2 _ _ _)) = 
+  x <= x2 && valido m2
+valido (M x _ m1@(M x1 _ _ _) m2@(M x2 _ _ _)) = 
+  x <= x1 && valido m1 &&
+  x <= x2 && valido m2
 
 -- | (elementos m) es la lista de los elementos del montículo m. Por
 -- ejemplo, 
@@ -181,28 +181,8 @@ elementos (M x _ a b) = x : elementos a ++ elementos b
 -- > True
 equivMonticulos :: Ord a => Monticulo a -> Monticulo a -> Bool
 equivMonticulos m1 m2 = 
-    sort (elementos m1) == sort (elementos m2)
+  sort (elementos m1) == sort (elementos m2)
 
 -- Los montículos son comparables por igualdad.
 instance Ord a => Eq (Monticulo a) where
-   (==) = equivMonticulos
-
--- ---------------------------------------------------------------------
--- Funciones auxiliares                                               --
--- ---------------------------------------------------------------------
-
--- | (menorTodos x m) comprueba si x es menor que todos los elementos de m
-menorTodos:: Ord a => a -> Monticulo a -> Bool
-menorTodos x Vacio      = True
-menorTodos x (M y n a b) = x <= y && valido (M y n a b)
-
--- | (enMonticulo x m) se verifica si x es un elemento del montículo
--- m. Por ejemplo, 
--- 
--- > enMonticulo 4 (foldr inserta vacio [6,1,4,8])  ==  True
--- > enMonticulo 5 (foldr inserta vacio [6,1,4,8])  ==  False
-enMonticulo x Vacio      = False
-enMonticulo x (M y _ a b) 
-    | x < y     = False
-    | x == y    = True
-    | otherwise = enMonticulo x a || enMonticulo x b
+  (==) = equivMonticulos

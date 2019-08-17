@@ -36,9 +36,6 @@ buscaPM :: (Ord nodo) =>
 buscaPM sucesores esFinal x = busca' (inserta x vacia)
  where
    busca' c 
-    | esVacia c = []
-    | esFinal (primero c)  
-        = (primero c):(busca' (resto c))
-    | otherwise            
-        = busca' (foldr inserta (resto c) (sucesores x))
-          where x = primero c
+     | esVacia c = []
+     | esFinal (primero c)  = primero c : busca' (resto c)
+     | otherwise = busca' (foldr inserta (resto c) (sucesores (primero c)))

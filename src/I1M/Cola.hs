@@ -10,24 +10,24 @@
 -- estudiado en el <http://bit.ly/1F5RSjM tema 15> del curso.
 
 module I1M.Cola
-    (Cola,
-     vacia,   -- Cola a
-     inserta, -- a -> Cola a -> Cola a
-     primero, -- Cola a -> a
-     resto,   -- Cola a -> Cola a
-     esVacia, -- Cola a -> Bool
-     valida   -- Cola a -> Bool
-    ) where
+  (Cola,
+   vacia,   -- Cola a
+   inserta, -- a -> Cola a -> Cola a
+   primero, -- Cola a -> a
+   resto,   -- Cola a -> Cola a
+   esVacia, -- Cola a -> Bool
+   valida   -- Cola a -> Bool
+  ) where
 
 -- | Tipo de las colas.
 newtype Cola a = C [a]
-    deriving (Show, Eq)
+  deriving (Show, Eq)
 
 -- | c1 es un ejemplo de cola que se usará en los siguientes ejemplos.
 -- 
 -- > ghci> c1
 -- > C [10,9,8,7,6,5,4,3,2,1]
-c1 = foldr inserta vacia [1..10]
+-- c1 = foldr inserta vacia [1..10]
 
 -- | vacia es la cola vacía. Por ejemplo,
 -- 
@@ -70,4 +70,4 @@ esVacia (C xs)  = null xs
 -- | (valida c) se verifica si c representa una cola válida. Con esta
 -- representación, todas las colas son válidas.
 valida :: Cola a -> Bool
-valida c = True
+valida _ = True

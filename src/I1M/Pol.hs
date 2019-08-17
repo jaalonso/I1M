@@ -52,32 +52,32 @@ module I1M.Pol
 -- | Tipo de dato de polinomios.
 data Polinomio a = PolCero 
                  | ConsPol Int a (Polinomio a)
-                 deriving Eq
+  deriving Eq
              
 -- ---------------------------------------------------------------------
 -- Escritura de los polinomios                                        --
 -- ---------------------------------------------------------------------
 
 instance (Num a, Show a, Eq a) => Show (Polinomio a) where
-    show PolCero               = "0"
-    show (ConsPol 0 b PolCero) = show b
-    show (ConsPol 0 b p)       = concat [show b, " + ", show p] 
-    show (ConsPol 1 b PolCero) = concat [show b, "*x"]
-    show (ConsPol 1 b p)       = concat [show b, "*x + ", show p] 
-    show (ConsPol n 1 PolCero) = concat ["x^", show n] 
-    show (ConsPol n b PolCero) = concat [show b, "*x^", show n] 
-    show (ConsPol n 1 p)       = concat ["x^", show n, " + ", show p] 
-    show (ConsPol n b p)       = concat [show b, "*x^", show n, " + ", show p] 
+  show PolCero               = "0"
+  show (ConsPol 0 b PolCero) = show b
+  show (ConsPol 0 b p)       = concat [show b, " + ", show p] 
+  show (ConsPol 1 b PolCero) = show b ++ "*x"
+  show (ConsPol 1 b p)       = concat [show b, "*x + ", show p] 
+  show (ConsPol n 1 PolCero) = "x^" ++ show n 
+  show (ConsPol n b PolCero) = concat [show b, "*x^", show n] 
+  show (ConsPol n 1 p)       = concat ["x^", show n, " + ", show p] 
+  show (ConsPol n b p)       = concat [show b, "*x^", show n, " + ", show p] 
 
 -- ---------------------------------------------------------------------
 -- Ejemplos de polinomios                                             --
 -- ---------------------------------------------------------------------
 
 -- Ejemplos de polinomios con coeficientes enteros:
-ejPol1, ejPol2, ejPol3:: Polinomio Int
-ejPol1 = consPol 4 3 (consPol 2 (-5) (consPol 0 3 polCero))
-ejPol2 = consPol 5 1 (consPol 2 5 (consPol 1 4 polCero))
-ejPol3 = consPol 4 6 (consPol 1 2 polCero)
+-- ejPol1, ejPol2, ejPol3:: Polinomio Int
+-- ejPol1 = consPol 4 3 (consPol 2 (-5) (consPol 0 3 polCero))
+-- ejPol2 = consPol 5 1 (consPol 2 5 (consPol 1 4 polCero))
+-- ejPol3 = consPol 4 6 (consPol 1 2 polCero)
 
 -- Comprobación de escritura:
 --    > ejPol1
@@ -88,10 +88,10 @@ ejPol3 = consPol 4 6 (consPol 1 2 polCero)
 --    6*x^4 + 2*x
 
 -- Ejemplos de polinomios con coeficientes reales:
-ejPol5, ejPol6, ejPol7:: Polinomio Float
-ejPol5 = consPol 4 3 (consPol 2 (-5) (consPol 0 3 polCero))
-ejPol6 = consPol 5 1 (consPol 2 5 (consPol 1 4 polCero))
-ejPol7 = consPol 1 2 (consPol 4 6 polCero)
+-- ejPol5, ejPol6, ejPol7:: Polinomio Float
+-- ejPol5 = consPol 4 3 (consPol 2 (-5) (consPol 0 3 polCero))
+-- ejPol6 = consPol 5 1 (consPol 2 5 (consPol 1 4 polCero))
+-- ejPol7 = consPol 1 2 (consPol 4 6 polCero)
 
 -- Comprobación de escritura:
 --    > ejPol5
@@ -132,16 +132,16 @@ consPol :: (Num a, Eq a) => Int -> a -> Polinomio a -> Polinomio a
 consPol _ 0 p = p
 consPol n b PolCero = ConsPol n b PolCero
 consPol n b (ConsPol m c p) 
-    | n > m      = ConsPol n b (ConsPol m c p)
-    | n < m      = ConsPol m c (consPol n b p)
-    | b+c == 0   = p
-    | otherwise  = ConsPol n (b+c) p
+  | n > m      = ConsPol n b (ConsPol m c p)
+  | n < m      = ConsPol m c (consPol n b p)
+  | b+c == 0   = p
+  | otherwise  = ConsPol n (b+c) p
 
 -- | (grado p) es el grado del polinomio p. Por ejemplo,
 -- 
 -- > ejPol3        ==  6*x^4 + 2*x
 -- > grado ejPol3  ==  4
-grado:: Polinomio a -> Int
+grado :: Polinomio a -> Int
 grado PolCero         = 0
 grado (ConsPol n _ _) = n
 
@@ -149,7 +149,7 @@ grado (ConsPol n _ _) = n
 -- 
 -- > ejPol3            ==  6*x^4 + 2*x
 -- > coefLider ejPol3  ==  6
-coefLider:: Num t => Polinomio t -> t
+coefLider :: Num t => Polinomio t -> t
 coefLider PolCero         = 0
 coefLider (ConsPol _ b _) = b
 

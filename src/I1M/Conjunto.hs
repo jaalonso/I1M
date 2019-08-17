@@ -10,33 +10,34 @@
 -- estudiado en el <http://bit.ly/1WYZzmW tema 17> del curso.
 
 module I1M.Conjunto
-    (Conj,
-     vacio,     -- Conj a                       
-     esVacio,   -- Conj a -> Bool               
-     pertenece, -- Ord a => a -> Conj a -> Bool  
-     inserta,   -- Ord a => a -> Conj a -> Conj a
-     elimina    -- Ord a => a -> Conj a -> Conj a
-    ) where
+  (Conj,
+   vacio,     -- Conj a                       
+   esVacio,   -- Conj a -> Bool               
+   pertenece, -- Ord a => a -> Conj a -> Bool  
+   inserta,   -- Ord a => a -> Conj a -> Conj a
+   elimina    -- Ord a => a -> Conj a -> Conj a
+  ) where
 
 -- | Tipo de dato de los conjuntos.
 newtype Conj a = Cj [a]
-    deriving Eq
+  deriving Eq
 
 -- Procedimiento de escritura de los conjuntos.
 instance (Show a) => Show (Conj a) where
-    showsPrec _ (Cj s) cad = showConj s cad
+  showsPrec _ (Cj s) = showConj s 
 
+showConj :: Show a => [a] -> String -> String
 showConj []     cad = showString "{}" cad
 showConj (x:xs) cad = showChar '{' (shows x (showl xs cad))
-     where showl []     cad = showChar '}' cad
-           showl (x:xs) cad = showChar ',' (shows x (showl xs cad))
+  where showl []     cs = showChar '}' cs
+        showl (y:ys) cs = showChar ',' (shows y (showl ys cs))
 
 -- En los ejemplos se usará el siguiente conjunto.
 -- 
 -- > ghci> c1
 -- > {0,1,2,3,5,7,9}
-c1 :: Conj Int
-c1 = foldr inserta vacio [2,5,1,3,7,5,3,2,1,9,0]
+-- c1 :: Conj Int
+-- c1 = foldr inserta vacio [2,5,1,3,7,5,3,2,1,9,0]
 
 -- | vacio es el conjunto vacío. Por ejemplo,
 -- 
@@ -62,7 +63,7 @@ esVacio (Cj xs) = null xs
 -- > λ> pertenece 4 c1
 -- > False
 pertenece :: Ord a => a -> Conj a -> Bool 
-pertenece x (Cj s) = elem x (takeWhile (<= x) s)
+pertenece x (Cj s) = x `elem` takeWhile (<= x) s
 
 -- | (inserta x c) es el conjunto obtenido añadiendo el elemento x al
 -- conjunto c. Por ejemplo,
@@ -76,10 +77,10 @@ pertenece x (Cj s) = elem x (takeWhile (<= x) s)
 -- > {2,3,4,5}
 inserta :: Ord a => a -> Conj a -> Conj a
 inserta x (Cj s) = Cj (agrega x s)
-    where agrega x []                    = [x]                
-          agrega x s@(y:ys) | x > y      = y : (agrega x ys)
-                            | x < y      = x : s
-                            | otherwise  = s
+  where agrega x' []                    = [x']                
+        agrega x' s'@(y:ys) | x' > y    = y : agrega x' ys
+                            | x' < y    = x' : s'
+                            | otherwise = s'
 
 -- | (elimina x c) es el conjunto obtenido eliminando el elemento x
 -- del conjunto c. Por ejemplo,
@@ -92,8 +93,8 @@ inserta x (Cj s) = Cj (agrega x s)
 -- > λ> elimina 7 c1
 -- > {2,3,5}
 elimina :: Ord a => a -> Conj a -> Conj a
-elimina x (Cj s) = Cj (elimina x s)
-    where elimina x []                   = []
-          elimina x s@(y:ys) | x > y     = y : (elimina x ys)
-                             | x < y     = s
-                             | otherwise = ys
+elimina x (Cj s) = Cj (elimina' x s)
+  where elimina' _ []                    = []
+        elimina' x' s'@(y:ys') | x' > y    = y : elimina' x' ys'
+                               | x' < y    = s'
+                               | otherwise = ys'

@@ -35,11 +35,10 @@ buscaEscalada :: Ord nodo =>
                  -> (nodo -> Bool)  -- es final
                  -> nodo            -- nodo actual
                  -> [nodo]          -- soluciones
-buscaEscalada sucesores esFinal x = (busca' (inserta x vacia) )
+buscaEscalada sucesores esFinal x = busca' (inserta x vacia) 
     where
       busca' c  
-          | esVacia c           = [] 
-          | esFinal (primero c) = [primero c]
-          | otherwise           = 
-              busca' (foldr inserta vacia (sucesores x))
-              where x = primero c
+        | esVacia c           = [] 
+        | esFinal (primero c) = [primero c]
+        | otherwise           = 
+            busca' (foldr inserta vacia (sucesores (primero c)))

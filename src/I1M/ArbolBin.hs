@@ -35,36 +35,36 @@
 -- > abb2 = foldr inserta vacio (reverse [5,2,4,3,8,6,7,10,9,11])
 
 module I1M.ArbolBin
-    (ABB,
-     vacio,     -- ABB 
-     inserta,   -- (Ord a,Show a) => a -> ABB a -> ABB a
-     elimina,   -- (Ord a,Show a) => a -> ABB a -> ABB a
-     crea,      -- (Ord a,Show a) => [a] -> ABB a
-     crea',     -- (Ord a,Show a) => [a] -> ABB a
-     menor,     -- Ord a => ABB a -> a
-     elementos, -- (Ord a,Show a) => ABB a -> [a]
-     pertenece, -- (Ord a,Show a) => a -> ABB a -> Bool
-     valido     -- (Ord a,Show a) => ABB a -> Bool
-    ) where
+  (ABB,
+   vacio,     -- ABB 
+   inserta,   -- (Ord a,Show a) => a -> ABB a -> ABB a
+   elimina,   -- (Ord a,Show a) => a -> ABB a -> ABB a
+   crea,      -- (Ord a,Show a) => [a] -> ABB a
+   crea',     -- (Ord a,Show a) => [a] -> ABB a
+   menor,     -- Ord a => ABB a -> a
+   elementos, -- (Ord a,Show a) => ABB a -> [a]
+   pertenece, -- (Ord a,Show a) => a -> ABB a -> Bool
+   valido     -- (Ord a,Show a) => ABB a -> Bool
+  ) where
 
 -- | El tipo de dato de los ABB,
 data ABB a = Vacio
            | Nodo a (ABB a) (ABB a)
-           deriving Eq
+  deriving Eq
 
 -- Procedimiento de escritura de árboles binarios de búsqueda.
 instance (Show a, Ord a) => Show (ABB a) where
-    show Vacio        = " -"
-    show (Nodo x i d) = " (" ++ show x ++ show i ++ show d ++ ")"
+  show Vacio        = " -"
+  show (Nodo x i d) = " (" ++ show x ++ show i ++ show d ++ ")"
 
 -- Ejemplos de ABB
 --    ghci> abb1
 --     (5 (2 - (4 (3 - -) -)) (6 - (8 - (9 - -))))
 --    ghci> abb2
 --     (5 (2 - (4 (3 - -) -)) (8 (6 - (7 - -)) (10 (9 - -) (11 - -))))
-abb1, abb2 :: ABB Int
-abb1 = crea (reverse [5,2,6,4,8,3,9])
-abb2 = foldr inserta vacio (reverse [5,2,4,3,8,6,7,10,9,11])
+-- abb1, abb2 :: ABB Int
+-- abb1 = crea (reverse [5,2,6,4,8,3,9])
+-- abb2 = foldr inserta vacio (reverse [5,2,4,3,8,6,7,10,9,11])
 
 -- | vacio es el ABB vacío. Por ejemplo,
 -- 
@@ -79,10 +79,11 @@ vacio = Vacio
 -- > pertenece 3 abb1  ==  True
 -- > pertenece 7 abb1  ==  False
 pertenece :: (Ord a,Show a) => a -> ABB a -> Bool
-pertenece v' Vacio                = False
-pertenece v' (Nodo v i d) | v==v' = True  
-                          | v'<v  = pertenece v' i
-                          | v'>v  = pertenece v' d
+pertenece _  Vacio = False
+pertenece v' (Nodo v i d)
+  | v == v'   = True  
+  | v' < v    = pertenece v' i
+  | otherwise = pertenece v' d
 
 -- pertenece requiere O(n) paso en el peor caso O(n) y O(log n) en el mejor,
 -- donde n es el número de nodos del ABB. 
@@ -95,9 +96,9 @@ pertenece v' (Nodo v i d) | v==v' = True
 inserta :: (Ord a,Show a) => a -> ABB a -> ABB a
 inserta v' Vacio = Nodo v' Vacio Vacio
 inserta v' (Nodo v i d) 
-    | v' == v   = Nodo v i d
-    | v' < v    = Nodo v (inserta v' i) d
-    | otherwise = Nodo v i (inserta v' d)
+  | v' == v   = Nodo v i d
+  | v' < v    = Nodo v (inserta v' i) d
+  | otherwise = Nodo v i (inserta v' d)
 
 -- inserta requiere O(n) pasos en el peor caso y O(log n) en el mejor.
                                         
@@ -116,9 +117,9 @@ crea = foldr inserta Vacio
 crea' :: (Ord a,Show a) => [a] -> ABB a
 crea' [] = Vacio
 crea' vs = Nodo x (crea' l1) (crea' l2)
-    where n      = length vs `div` 2
-          l1     = take n vs
-          (x:l2) = drop n vs 
+  where n      = length vs `div` 2
+        l1     = take n vs
+        (x:l2) = drop n vs 
 
 -- | (elementos a) es la lista de los valores de los nodos del ABB en el
 -- recorrido inorden. Por ejemplo,          
@@ -143,39 +144,43 @@ elementos (Nodo v i d) = elementos i ++ [v] ++ elementos d
 -- > ghci> elimina 7 abb1
 -- >  (5 (2 - (4 (3 - -) -)) (6 - (8 - (9 - -))))
 elimina  :: (Ord a,Show a) => a -> ABB a -> ABB a
-elimina v' Vacio = Vacio 
+elimina _ Vacio = Vacio 
 elimina v' (Nodo v i Vacio) | v'==v = i 
 elimina v' (Nodo v Vacio d) | v'==v = d
 elimina v' (Nodo v i d)
-    | v'<v  = Nodo v (elimina v' i) d 
-    | v'>v  = Nodo v i (elimina v' d)  
-    | v'==v = Nodo k i (elimina k d)
-              where k = menor d 
+  | v' < v    = Nodo v (elimina v' i) d 
+  | v' > v    = Nodo v i (elimina v' d)  
+  | otherwise = Nodo k i (elimina k d)
+  where k = menor d 
 
 -- | (menor a) es el mínimo valor del ABB a. Por ejemplo,
 -- 
 -- > menor abb1  ==  2
 menor :: Ord a => ABB a -> a
 menor (Nodo v Vacio _) = v
-menor (Nodo _ i _)        = menor i 
+menor (Nodo _ i _)     = menor i 
+menor Vacio            = error "No tiene"
 
 -- | (menorTodos v a) se verifica si v es menor que todos los elementos
 -- del ABB a.
 menorTodos :: (Ord a, Show a) => a -> ABB a -> Bool
-menorTodos v Vacio = True 
+menorTodos _ Vacio = True 
 menorTodos v a        = v < minimum (elementos a)
 
 -- | (mayorTodos v a) se verifica si v es mayor que todos los elementos
 -- del ABB a.
 mayorTodos :: (Ord a, Show a) => a -> ABB a -> Bool
-mayorTodos v Vacio = True 
+mayorTodos _ Vacio = True 
 mayorTodos v a = v > maximum (elementos a)
 
 -- | (valido a) se verifica si a es un ABB correcto. Por ejemplo,
 -- 
 -- > valido abb1 == True
 valido :: (Ord a, Show a) => ABB a -> Bool
-valido Vacio        = True
-valido (Nodo v a b) = mayorTodos v a && menorTodos v b && 
-                      valido a && valido b
+valido Vacio = True
+valido (Nodo v a b) =
+  mayorTodos v a &&
+  menorTodos v b && 
+  valido a &&
+  valido b
 

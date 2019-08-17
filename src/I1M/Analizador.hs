@@ -11,41 +11,41 @@
 -- <http://bit.ly/1IswyVV tema 12> del curso.  
 
 module I1M.Analizador
-    ( -- * El tipo de los analizadores
-      Analizador
-    , analiza 
-    -- * Analizadores básicos
-    , resultado 
-    , fallo 
-    , elemento 
-    -- * Secuenciación
-    , (>*>) 
-    -- * Elección
-    , (+++) 
-    -- * Primitivas derivadas
-    , sat 
-    , digito 
-    , minuscula 
-    , mayuscula 
-    , letra 
-    , alfanumerico 
-    , caracter 
-    , cadena 
-    , varios 
-    , varios1 
-    , ident 
-    , nat 
-    , espacio 
-    -- * Tratamiento de espacios
-    , unidad 
-    , identificador 
-    , natural 
-    , simbolo 
-    , listaNat 
-    -- * Expresiones aritméticas
-    , expr 
-    , valor)
-    where
+  ( -- * El tipo de los analizadores
+    Analizador
+  , analiza 
+  -- * Analizadores básicos
+  , resultado 
+  , fallo 
+  , elemento 
+  -- * Secuenciación
+  , (>*>) 
+  -- * Elección
+  , (+++) 
+  -- * Primitivas derivadas
+  , sat 
+  , digito 
+  , minuscula 
+  , mayuscula 
+  , letra 
+  , alfanumerico 
+  , caracter 
+  , cadena 
+  , varios 
+  , varios1 
+  , ident 
+  , nat 
+  , espacio 
+  -- * Tratamiento de espacios
+  , unidad 
+  , identificador 
+  , natural 
+  , simbolo 
+  , listaNat 
+  -- * Expresiones aritméticas
+  , expr 
+  , valor
+  ) where
 
 import Data.Char
 
@@ -59,7 +59,7 @@ type Analizador a = String -> [(a,String)]
 -- | (analiza a cs) es el resultado de aplicar el analizador a a la
 -- cadena cs.
 analiza :: Analizador a -> String -> [(a,String)]
-analiza a cs = a cs
+analiza a = a
 
 -- ---------------------------------------------------------------------
 -- § Analizadores básicos                                             --

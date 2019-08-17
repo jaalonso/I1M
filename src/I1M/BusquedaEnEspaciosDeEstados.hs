@@ -61,7 +61,6 @@ buscaEE:: (Eq nodo) => (nodo -> [nodo])    -- sucesores
 buscaEE sucesores esFinal x = busca' (apila x vacia) 
  where
    busca' p  
-    | esVacia p        = [] 
-    | esFinal (cima p) = cima p : busca' (desapila p)
-    | otherwise        = busca' (foldr apila (desapila p) (sucesores x))
-                         where x = cima p
+     | esVacia p        = [] 
+     | esFinal (cima p) = cima p : busca' (desapila p)
+     | otherwise        = busca' (foldr apila (desapila p) (sucesores (cima p)))

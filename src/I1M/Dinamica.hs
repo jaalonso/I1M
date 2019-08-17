@@ -27,4 +27,4 @@ import Data.Array
 -- el rango r.
 dinamica :: Ix i => (Tabla i v -> i -> v) -> (i,i) -> Tabla i v
 dinamica calcula cotas = t
-    where t = tabla [(i,calcula t i) | i <- range cotas]
+  where t = tabla [(i,calcula t i) | i <- range cotas]

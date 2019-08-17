@@ -20,13 +20,13 @@
 -- >               [(1,2,0),(1,3,0),(1,4,0),(3,6,0),(5,4,0),(6,2,0),(6,5,0)]
 
 module I1M.RecorridoEnProfundidad (recorridoEnProfundidad, 
-                                   recorridoEnProfundidad')
-    where
+                                   recorridoEnProfundidad') where
 
 -- ---------------------------------------------------------------------
 -- Librerías auxiliares                                               --
 -- ---------------------------------------------------------------------
 
+import Data.Ix
 import I1M.Grafo
 
 -- ---------------------------------------------------------------------
@@ -42,8 +42,8 @@ import I1M.Grafo
 --    |                 |
 --    +---> 4 <---------+
 
-g = creaGrafo D (1,6) 
-              [(1,2,0),(1,3,0),(1,4,0),(3,6,0),(5,4,0),(6,2,0),(6,5,0)]
+-- g = creaGrafo D (1,6) 
+--               [(1,2,0),(1,3,0),(1,4,0),(3,6,0),(5,4,0),(6,2,0),(6,5,0)]
 
 -- ---------------------------------------------------------------------
 -- Recorrido en profundidad                                            --
@@ -53,12 +53,12 @@ g = creaGrafo D (1,6)
 -- desde el vértice i. Por ejemplo,
 -- 
 -- > recorridoEnProfundidad 1 g  ==  [1,2,3,6,5,4]
-recorridoEnProfundidad i g = rp [i] []
-    where 
-      rp [] vis    = vis
-      rp (c:cs) vis 
-          | c `elem` vis = rp cs vis
-          | otherwise    = rp ((adyacentes g c)++cs) (vis++[c])
+recorridoEnProfundidad :: (Num p, Ix v) => v -> Grafo v p -> [v]
+recorridoEnProfundidad i g = rp [i] [] where 
+  rp [] vis    = vis
+  rp (c:cs) vis 
+    | c `elem` vis = rp cs vis
+    | otherwise    = rp (adyacentes g c ++ cs) (vis ++ [c])
 
 -- Traza del cálculo de (recorridoEnProfundidad 1 g)
 --    recorridoEnProfundidad 1 g
@@ -82,12 +82,12 @@ recorridoEnProfundidad i g = rp [i] []
 -- acumulador. Por ejemplo, 
 -- 
 -- > recorridoEnProfundidad' 1 g  ==  [1,2,3,6,5,4]
-recorridoEnProfundidad' i g = reverse (rp [i] [])
-    where
-      rp [] vis     = vis
-      rp (c:cs) vis 
-          | c `elem` vis = rp cs vis
-          | otherwise    = rp ((adyacentes g c)++cs) (c:vis)
+recorridoEnProfundidad' :: (Num p, Ix v) => v -> Grafo v p -> [v]
+recorridoEnProfundidad' i g = reverse (rp [i] []) where
+  rp [] vis     = vis
+  rp (c:cs) vis 
+    | c `elem` vis = rp cs vis
+    | otherwise    = rp ( adyacentes g c ++ cs) (c : vis)
 
 -- Traza del cálculo de (recorridoEnProfundidad' 1 g)
 --    RecorridoEnProfundidad' 1 g

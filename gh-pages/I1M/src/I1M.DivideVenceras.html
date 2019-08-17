@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">-- |</span><span>
+</span><a name="line-2"></a><span class="hs-comment">-- Module      : DivideVenceras</span><span>
+</span><a name="line-3"></a><span class="hs-comment">-- Description : El patr&#243;n &quot;divide y vencer&#225;s&quot;.</span><span>
+</span><a name="line-4"></a><span class="hs-comment">-- License     : Creative Commons</span><span>
+</span><a name="line-5"></a><span class="hs-comment">-- Maintainer  : Jos&#233; A. Alonso</span><span>
+</span><a name="line-6"></a><span class="hs-comment">-- </span><span>
+</span><a name="line-7"></a><span class="hs-comment">-- = El patr&#243;n &quot;divide y vencer&#225;s&quot;</span><span>
+</span><a name="line-8"></a><span class="hs-comment">-- </span><span>
+</span><a name="line-9"></a><span class="hs-comment">-- La t&#233;cnica &quot;divide y vencer&#225;s&quot; consta de los siguientes pasos:</span><span>
+</span><a name="line-10"></a><span class="hs-comment">-- </span><span>
+</span><a name="line-11"></a><span class="hs-comment">-- 1. Dividir el problema en subproblemas menores.</span><span>
+</span><a name="line-12"></a><span class="hs-comment">-- 2. Resolver por separado cada uno de los subproblemas; si los</span><span>
+</span><a name="line-13"></a><span class="hs-comment">--    subproblemas son complejos, usar la misma t&#233;cnica recursivamente;</span><span>
+</span><a name="line-14"></a><span class="hs-comment">--    si son simples, resolverlos directamente.</span><span>
+</span><a name="line-15"></a><span class="hs-comment">-- 3. Combinar todas las soluciones de los subproblemas en una soluci&#243;n</span><span>
+</span><a name="line-16"></a><span class="hs-comment">--    simple. </span><span>
+</span><a name="line-17"></a><span class="hs-comment">-- </span><span>
+</span><a name="line-18"></a><span class="hs-comment">-- Este m&#243;dulo contiene la definici&#243;n del patr&#243;n &quot;divide y vencer&#225;s&quot;</span><span>
+</span><a name="line-19"></a><span class="hs-comment">-- estudiado en el &lt;http://bit.ly/1IstbhD tema 15&gt; del curso. Adem&#225;s, en</span><span>
+</span><a name="line-20"></a><span class="hs-comment">-- el tema se incluye dos casos de aplicaci&#243;n del patr&#243;n:   </span><span>
+</span><a name="line-21"></a><span class="hs-comment">--</span><span>
+</span><a name="line-22"></a><span class="hs-comment">-- * &lt;http://bit.ly/1Istd99 la ordenaci&#243;n por mezcla&gt; y</span><span>
+</span><a name="line-23"></a><span class="hs-comment">-- * &lt;http://bit.ly/1Istid7 la ordenaci&#243;n r&#225;pida&gt;.</span><span>
+</span><a name="line-24"></a><span>
+</span><a name="line-25"></a><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">I1M.DivideVenceras</span><span> </span><span class="hs-special">(</span><a href="I1M.DivideVenceras.html#divideVenceras"><span class="hs-identifier hs-var">divideVenceras</span></a><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-26"></a><span>
+</span><a name="line-27"></a><span class="hs-comment">-- ---------------------------------------------------------------------</span><span>
+</span><a name="line-28"></a><span class="hs-comment">-- El patr&#243;n de dise&#241;o &quot;divide y vencer&#225;s&quot;                            --</span><span>
+</span><a name="line-29"></a><span class="hs-comment">-- ---------------------------------------------------------------------</span><span>
+</span><a name="line-30"></a><span>
+</span><a name="line-31"></a><span class="hs-comment">-- La t&#233;cnica &quot;divide y vencer&#225;s&quot; consta de los siguientes pasos:</span><span>
+</span><a name="line-32"></a><span class="hs-comment">-- 1. Dividir el problema en subproblemas menores.</span><span>
+</span><a name="line-33"></a><span class="hs-comment">-- 2. Resolver por separado cada uno de los subproblemas; si los</span><span>
+</span><a name="line-34"></a><span class="hs-comment">--    subproblemas son complejos, usar la misma t&#233;cnica recursivamente;</span><span>
+</span><a name="line-35"></a><span class="hs-comment">--    si son simples, resolverlos directamente.</span><span>
+</span><a name="line-36"></a><span class="hs-comment">-- 3. Combinar todas las soluciones de los subproblemas en una soluci&#243;n</span><span>
+</span><a name="line-37"></a><span class="hs-comment">--    simple. </span><span>
+</span><a name="line-38"></a><span>
+</span><a name="line-39"></a><span class="hs-comment">-- | (divideVenceras ind resuelve divide combina pbInicial) resuelve el</span><span>
+</span><a name="line-40"></a><span class="hs-comment">-- problema pbInicial mediante la t&#233;cnica de divide y vencer&#225;s, donde</span><span>
+</span><a name="line-41"></a><span class="hs-comment">-- </span><span>
+</span><a name="line-42"></a><span class="hs-comment">-- * (ind pb) se verifica si el problema pb es indivisible </span><span>
+</span><a name="line-43"></a><span class="hs-comment">-- * (resuelve pb) es la soluci&#243;n del problema indivisible pb</span><span>
+</span><a name="line-44"></a><span class="hs-comment">-- * (divide pb) es la lista de subproblemas de pb</span><span>
+</span><a name="line-45"></a><span class="hs-comment">-- * (combina pb ss) es la combinaci&#243;n de las soluciones ss de los</span><span>
+</span><a name="line-46"></a><span class="hs-comment">--      subproblemas del problema pb.</span><span>
+</span><a name="line-47"></a><span class="hs-comment">-- * pbInicial es el problema inicial</span><span>
+</span><a name="line-48"></a><span class="hs-identifier">divideVenceras</span><span> </span><span class="hs-glyph">::</span><span>
+</span><a name="line-49"></a><span>    </span><span class="hs-special">(</span><a href="#local-6989586621679036641"><span class="hs-identifier hs-type">p</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-identifier hs-type">Bool</span><span class="hs-special">)</span><span>
+</span><a name="line-50"></a><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><a href="#local-6989586621679036641"><span class="hs-identifier hs-type">p</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-6989586621679036642"><span class="hs-identifier hs-type">s</span></a><span class="hs-special">)</span><span>
+</span><a name="line-51"></a><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><a href="#local-6989586621679036641"><span class="hs-identifier hs-type">p</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><a href="#local-6989586621679036641"><span class="hs-identifier hs-type">p</span></a><span class="hs-special">]</span><span class="hs-special">)</span><span>
+</span><a name="line-52"></a><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">(</span><a href="#local-6989586621679036641"><span class="hs-identifier hs-type">p</span></a><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="hs-special">[</span><a href="#local-6989586621679036642"><span class="hs-identifier hs-type">s</span></a><span class="hs-special">]</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-6989586621679036642"><span class="hs-identifier hs-type">s</span></a><span class="hs-special">)</span><span>
+</span><a name="line-53"></a><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-6989586621679036641"><span class="hs-identifier hs-type">p</span></a><span>
+</span><a name="line-54"></a><span>    </span><span class="hs-glyph">-&gt;</span><span> </span><a href="#local-6989586621679036642"><span class="hs-identifier hs-type">s</span></a><span>
+</span><a name="line-55"></a><a name="divideVenceras"><a href="I1M.DivideVenceras.html#divideVenceras"><span class="hs-identifier">divideVenceras</span></a></a><span> </span><a name="local-6989586621679036643"><a href="#local-6989586621679036643"><span class="hs-identifier">ind</span></a></a><span> </span><a name="local-6989586621679036644"><a href="#local-6989586621679036644"><span class="hs-identifier">resuelve</span></a></a><span> </span><a name="local-6989586621679036645"><a href="#local-6989586621679036645"><span class="hs-identifier">divide</span></a></a><span> </span><a name="local-6989586621679036646"><a href="#local-6989586621679036646"><span class="hs-identifier">combina</span></a></a><span> </span><span class="hs-glyph">=</span><span> </span><a href="#local-6989586621679036647"><span class="hs-identifier hs-var">dv'</span></a><span> </span><span class="hs-keyword">where</span><span>
+</span><a name="line-56"></a><span>  </span><a name="local-6989586621679036647"><a href="#local-6989586621679036647"><span class="hs-identifier">dv'</span></a></a><span> </span><a name="local-6989586621679036648"><a href="#local-6989586621679036648"><span class="hs-identifier">pb</span></a></a><span>
+</span><a name="line-57"></a><span>    </span><span class="hs-glyph">|</span><span> </span><a href="#local-6989586621679036643"><span class="hs-identifier hs-var">ind</span></a><span> </span><a href="#local-6989586621679036648"><span class="hs-identifier hs-var">pb</span></a><span>    </span><span class="hs-glyph">=</span><span> </span><a href="#local-6989586621679036644"><span class="hs-identifier hs-var">resuelve</span></a><span> </span><a href="#local-6989586621679036648"><span class="hs-identifier hs-var">pb</span></a><span>
+</span><a name="line-58"></a><span>    </span><span class="hs-glyph">|</span><span> </span><span class="hs-identifier hs-var">otherwise</span><span> </span><span class="hs-glyph">=</span><span> </span><a href="#local-6989586621679036646"><span class="hs-identifier hs-var">combina</span></a><span> </span><a href="#local-6989586621679036648"><span class="hs-identifier hs-var">pb</span></a><span> </span><span class="hs-special">[</span><a href="#local-6989586621679036647"><span class="hs-identifier hs-var">dv'</span></a><span> </span><a href="#local-6989586621679036649"><span class="hs-identifier hs-var">sp</span></a><span> </span><span class="hs-glyph">|</span><span> </span><a name="local-6989586621679036649"><a href="#local-6989586621679036649"><span class="hs-identifier">sp</span></a></a><span> </span><span class="hs-glyph">&lt;-</span><span> </span><a href="#local-6989586621679036645"><span class="hs-identifier hs-var">divide</span></a><span> </span><a href="#local-6989586621679036648"><span class="hs-identifier hs-var">pb</span></a><span class="hs-special">]</span><span>
+</span><a name="line-59"></a></pre></body></html>

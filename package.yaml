@@ -1,19 +1,22 @@
 name: I1M
 version: '0.0.1'
-synopsis: Código de I1M.
-description: ! 'En este paquete se encuentra los códigos de las librerías
-
-  desarrolladas en el curso de
-
-  <https://www.cs.us.es/~jalonso/cursos/i1m Informática> de 1º del Grado en Matemáticas
-
-  de la Universidad de Sevilla.'
-category: Data
+synopsis: Code for the Haskell course taught at the University od Seville.
+description: |
+  'En este paquete se encuentra los códigos de las librerías
+  desarrolladas en el curso de 
+  <https://www.cs.us.es/~jalonso/cursos/i1m Informática> 
+  de 1º del Grado en Matemáticas de la Universidad de Sevilla.'
+category: Education, Data Structures, Library 
 author: Jose A. Alonso
 maintainer: JoseA.Alonso@gmail.com
 license: GPL-2
+license-file: LICENSE
+github: jaalonso/I1M
 homepage: https://github.com/jaalonso/I1M
-tested-with:   GHC==8.6.5
+tested-with: GHC==8.6.5
+extra-source-files:
+  - ChangeLog.md
+  - README.md
 dependencies:
 - base >=4.7 && <5
 library:

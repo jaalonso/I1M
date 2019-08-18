@@ -2,15 +2,15 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 71104ec648548de9d9fa2500b9b7409bbcf0f97797b684f57363456c0658eeaf
+-- hash: 705194781c54211e1fc8ec27cfad15cd7396a8debac34c6d18bb3a1eeaca619b
 
 name:           I1M
-version:        0.0.1
-synopsis:       Code for the Haskell course taught at the University od Seville.
-description:    'En este paquete se encuentra los códigos de las librerías
+version:        0.0.2
+synopsis:       Code for the Haskell course taught at the University of Seville.
+description:    En este paquete se encuentra los códigos de las librerías
                 desarrolladas en el curso de 
                 <https://www.cs.us.es/~jalonso/cursos/i1m Informática> 
-                de 1º del Grado en Matemáticas de la Universidad de Sevilla.'
+                de 1º del Grado en Matemáticas de la Universidad de Sevilla.
 category:       Education, Data Structures, Library
 homepage:       https://github.com/jaalonso/I1M
 bug-reports:    https://github.com/jaalonso/I1M/issues

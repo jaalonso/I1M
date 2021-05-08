@@ -1,17 +1,17 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.31.2.
+-- This file has been generated from package.yaml by hpack version 0.34.4.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 26f4a3c17738a7dde61fdea5ce0e23ae58ca025e63daed9b373ad440adb8e22b
+-- hash: 3adf51028d7695c17e69f2c627202b9472ec485f9cbc2f52806c52ef11001eb2
 
 name:           I1M
-version:        0.0.3
+version:        0.0.4
 synopsis:       Code for the Haskell course taught at the University of Seville.
 description:    En este paquete se encuentra los códigos de las librerías
-                desarrolladas en el curso de 
-                <https://www.cs.us.es/~jalonso/cursos/i1m Informática> 
+                desarrolladas en el curso de
+                <https://www.cs.us.es/~jalonso/cursos/i1m Informática>
                 de 1º del Grado en Matemáticas de la Universidad de Sevilla.
 category:       Education, Data Structures, Library
 homepage:       https://github.com/jaalonso/I1M
@@ -20,11 +20,12 @@ author:         Jose A. Alonso
 maintainer:     JoseA.Alonso@gmail.com
 license:        GPL-2
 license-file:   LICENSE
-tested-with:    GHC==8.4.3, GHC==8.6.5
+tested-with:
+    GHC==8.4.3, GHC==8.6.5
 build-type:     Simple
 extra-source-files:
     ChangeLog.md
-    README.md
+    README.org
 
 source-repository head
   type: git
@@ -56,8 +57,8 @@ library
       src
   ghc-options: -Wall
   build-depends:
-      QuickCheck >=2.9.2 && <2.12.7
-    , array >=0.5.0 && <0.5.4
+      QuickCheck >=2.9.2 && <=2.14.2
+    , array >=0.5.0 && <=0.5.4
     , base >=4.7 && <5
   default-language: Haskell2010
 

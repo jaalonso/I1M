@@ -1,5 +1,9 @@
 # ChangeLog
 
+## 0.0.4 (8 May 2021)
+
++ Compiled with ghc-8.10.4
+
 ## 0.0.3 (12 Sep 2019)
 
 + Compiled with ghc-8.4.3

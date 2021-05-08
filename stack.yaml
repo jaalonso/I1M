@@ -18,7 +18,8 @@
 # resolver: lts-6.13
 # resolver: lts-8.22
 # resolver: lts-9.3
-resolver: lts-13.26
+resolver: lts-12.14
+# resolver: lts-13.26
 
 # User packages to be built.
 # Various formats can be used as shown in the example below.

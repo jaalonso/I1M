@@ -1,11 +1,13 @@
--- This file has been generated from package.yaml by hpack version 0.28.2.
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 705194781c54211e1fc8ec27cfad15cd7396a8debac34c6d18bb3a1eeaca619b
+-- hash: 26f4a3c17738a7dde61fdea5ce0e23ae58ca025e63daed9b373ad440adb8e22b
 
 name:           I1M
-version:        0.0.2
+version:        0.0.3
 synopsis:       Code for the Haskell course taught at the University of Seville.
 description:    En este paquete se encuentra los códigos de las librerías
                 desarrolladas en el curso de 
@@ -18,9 +20,8 @@ author:         Jose A. Alonso
 maintainer:     JoseA.Alonso@gmail.com
 license:        GPL-2
 license-file:   LICENSE
-tested-with:    GHC==8.6.5
+tested-with:    GHC==8.4.3, GHC==8.6.5
 build-type:     Simple
-cabal-version:  >= 1.10
 extra-source-files:
     ChangeLog.md
     README.md

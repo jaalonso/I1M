@@ -1,5 +1,5 @@
 name: I1M
-version: '0.0.2'
+version: '0.0.3'
 synopsis: Code for the Haskell course taught at the University of Seville.
 description: |
   En este paquete se encuentra los códigos de las librerías
@@ -13,7 +13,7 @@ license: GPL-2
 license-file: LICENSE
 github: jaalonso/I1M
 homepage: https://github.com/jaalonso/I1M
-tested-with: GHC==8.6.5
+tested-with: GHC==8.4.3, GHC==8.6.5
 extra-source-files:
   - ChangeLog.md
   - README.md

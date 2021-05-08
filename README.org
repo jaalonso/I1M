@@ -1,0 +1,31 @@
+En este repositorio se encuentra el código en Haskell de las librerías
+desarrolladas y usadas en el curso de [[https://jaalonso.github.io/cursos/i1m/][Informática de 1º del Grado en Matemáticas]]
+de la Universidad de Sevilla.
+
+La documentación se puede consultar [[http://jaalonso.github.io/I1M/][aquí]].
+
+Las librerías incluidas son:
+
++ Tipos abstractos de datos:
+    + [[https://jaalonso.github.io/I1M/I1M-Pila.html][TAD de las pilas]].
+    + [[https://jaalonso.github.io/I1M/I1M-Cola.html][TAD de las colas]].
+    + [[https://jaalonso.github.io/I1M/I1M-ColaDePrioridad.html][TAD de las colas de prioridad]].
+    + [[https://jaalonso.github.io/I1M/I1M-Conjunto.html][TAD de los conjuntos]].
+    + [[https://jaalonso.github.io/I1M/I1M-Tabla.html][TAD de las tablas]].
+    + [[https://jaalonso.github.io/I1M/I1M-ArbolBin.html][TAD de los árboles binarios de búsqueda]].
+    + [[https://jaalonso.github.io/I1M/I1M-Monticulo.html][TAD de los montículos]].
+    + Polinomios:
+        + [[https://jaalonso.github.io/I1M/I1M-Pol.html][TAD de los polinomios]].
+        + [[https://jaalonso.github.io/I1M/I1M-PolOperaciones.html][Operaciones con el TAD de los polinomios]].
+    + Grafos:
+        + [[https://jaalonso.github.io/I1M/I1M-Grafo.html][TAD de los grafos]].
+        + [[https://jaalonso.github.io/I1M/I1M-RecorridoEnProfundidad.html][Recorrido de grafos en profundidad]].
+        + [[https://jaalonso.github.io/I1M/I1M-RecorridoEnAnchura.html][Recorrido de grafos en anchura]].
++ Patrones de diseño:
+    + [[https://jaalonso.github.io/I1M/I1M-DivideVenceras.html][Divide y vencerás]].
+    + [[https://jaalonso.github.io/I1M/I1M-BusquedaEnEspaciosDeEstados.html][Búsqueda en espacios de estados]].
+    + [[https://jaalonso.github.io/I1M/I1M-BusquedaPrimeroElMejor.html][Búsqueda por primero el mejor]].
+    + [[https://jaalonso.github.io/I1M/I1M-BusquedaEnEscalada.html][Búsqueda en escalada]].
+    + [[https://jaalonso.github.io/I1M/I1M-Dinamica.html][Programación dinámica]].
++ Analizadores:
+    + [[https://jaalonso.github.io/I1M/I1M-Analizador.html][Analizadores funcionales]].

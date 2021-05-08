@@ -13,7 +13,7 @@ license: GPL-2
 license-file: LICENSE
 github: jaalonso/I1M
 homepage: https://github.com/jaalonso/I1M
-tested-with: GHC==8.4.3, GHC==8.6.5
+tested-with: GHC==8.4.3, GHC==8.6.5, GHC==8.10.4
 extra-source-files:
   - ChangeLog.md
   - README.org

@@ -1,5 +1,5 @@
 name: I1M
-version: '0.0.4'
+version: '0.0.5'
 synopsis: Code for the Haskell course taught at the University of Seville.
 description: |
   En este paquete se encuentra los códigos de las librerías

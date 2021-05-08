@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 3adf51028d7695c17e69f2c627202b9472ec485f9cbc2f52806c52ef11001eb2
+-- hash: 821049aa2e4e064fe0d1bcede58c4623009855b9d67d415fc9867fc1631a1771
 
 name:           I1M
-version:        0.0.4
+version:        0.0.5
 synopsis:       Code for the Haskell course taught at the University of Seville.
 description:    En este paquete se encuentra los códigos de las librerías
                 desarrolladas en el curso de
@@ -21,7 +21,7 @@ maintainer:     JoseA.Alonso@gmail.com
 license:        GPL-2
 license-file:   LICENSE
 tested-with:
-    GHC==8.4.3, GHC==8.6.5
+    GHC==8.4.3, GHC==8.6.5, GHC==8.10.4
 build-type:     Simple
 extra-source-files:
     ChangeLog.md

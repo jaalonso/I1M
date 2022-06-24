@@ -1,7 +1,7 @@
 En este repositorio se encuentra el código en Haskell de las librerías
 desarrolladas y usadas en el curso de [[https://jaalonso.github.io/cursos/i1m/][Informática de 1º del Grado en Matemáticas]]
 de la Universidad de Sevilla.
-
+ 
 La documentación se puede consultar [[http://jaalonso.github.io/I1M/][aquí]].
 
 Las librerías incluidas son:

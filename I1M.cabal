@@ -4,14 +4,14 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 9e8c919932f4f453f24e73fc45df5ec84ed851e907d393cf4a159c7c03f88028
+-- hash: 24c3af4ae70c0d60ee3eabece7ee11e37fc3bbc61469b04a1a8eaeb03f242cde
 
 name:           I1M
-version:        0.2.0
+version:        0.2.2
 synopsis:       Code for the Haskell course taught at the University of Seville.
 description:    En este paquete se encuentra los códigos de las librerías
                 desarrolladas en el curso de
-                <https://www.cs.us.es/~jalonso/cursos/i1m Informática>
+                <https://www.cs.us.es/~jalonso/cursos/i1m Informatica>
                 de 1º del Grado en Matemáticas de la Universidad de Sevilla.
 category:       Education, Data Structures, Library
 homepage:       https://github.com/jaalonso/I1M
@@ -21,7 +21,7 @@ maintainer:     JoseA.Alonso@gmail.com
 license:        GPL-2
 license-file:   LICENSE
 tested-with:
-    GHC==8.4.3, GHC==8.6.5, GHC==8.10.4
+    GHC==8.4.3, GHC==8.6.5, GHC==8.10.4, GHC==9.6.6
 build-type:     Simple
 extra-source-files:
     ChangeLog.md
